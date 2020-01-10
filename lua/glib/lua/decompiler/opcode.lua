@@ -21,6 +21,8 @@ local opcodeData = [[
   _(ISFC,dst,___,var,___) \
   _(IST,___,___,var,___) \
   _(ISF,___,___,var,___) \
+  _(ISTYPE,var,___,lit,___) \
+  _(ISNUM,var,___,lit,___) \
   \
   /* Unary ops. */ \
   _(MOV,dst,___,var,___) \
@@ -75,10 +77,12 @@ local opcodeData = [[
   _(TGETV,dst,var,var,index) \
   _(TGETS,dst,var,str,index) \
   _(TGETB,dst,var,lit,index) \
+  _(TGETR,dst,var,var,index) \
   _(TSETV,var,var,var,newindex) \
   _(TSETS,var,var,str,newindex) \
   _(TSETB,var,var,lit,newindex) \
   _(TSETM,base,___,num,newindex) \
+  _(TSETR,var,var,var,newindex) \
   \
   /* Calls and vararg handling. T = tail call. */ \
   _(CALLM,base,lit,lit,call) \
@@ -123,6 +127,7 @@ local opcodeData = [[
   _(JFUNCV,rbase,___,lit,___) \
   _(FUNCC,rbase,___,___,___) \
   _(FUNCCW,rbase,___,___,___)
+
 ]]
 
 local operandTypeMap =
